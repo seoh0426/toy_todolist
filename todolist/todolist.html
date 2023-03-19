@@ -45,15 +45,11 @@
             
             
         }
-        function allclearlist(e){
-            if(confirm("정말 삭제하시겠습니까?")==true){
-                if(listitem.innerText==""){
-                    alert("삭제할 목록이 없습니다");
-                }else{
-                    listitem.innerText="";
-                }
-            }else{
-                return false;
+
+        function removeAllList() {
+            const parent = document.getElementById('todolist');
+            while(parent.firstChild){
+                parent.removeChild(parent.firstChild);
             }
         }
         
@@ -70,7 +66,7 @@
         <hr>
         <ul id="todolist" class="list-group"></ul>
         <div>
-            <button type="button" id="allclear" onclick="allclearlist()">모두 삭제</button>
+            <button type="button" id="allclear" onclick="removeAllList()">모두 삭제</button>
         </div>
     </div>
 </body>
